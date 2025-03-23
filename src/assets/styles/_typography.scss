@@ -1,0 +1,75 @@
+@use 'colors' as *;
+@use 'media' as *;
+
+@use 'sass:map';
+
+@import 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,320..800;1,320..800&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap';
+
+$font-size: (
+  'large': 24px,
+  'medium': 16px,
+  'small': 14px,
+);
+
+@mixin font($name: 'Open Sans') {
+  font-family: $name, sans-serif;
+}
+
+@function font-size($size: 'medium') {
+  @return map.get($font-size, $size);
+}
+
+@mixin header($color: $white) {
+  @include font('Montserrat');
+
+  color: $color;
+  font-weight: 500;
+  font-size: font-size('large');
+  line-height: 1.4;
+
+  @include media('<tablet') {
+    font-size: font-size('medium');
+  }
+}
+
+@mixin title($color: $black) {
+  @include font('Montserrat');
+
+  color: $color;
+  font-weight: 600;
+  font-size: font-size('medium');
+  line-height: 1.4;
+
+  @include media('<tablet') {
+    font-size: font-size('small');
+  }
+}
+
+@mixin subtitle($color: $black) {
+  @include font('Montserrat');
+
+  color: $color;
+  font-weight: 600;
+  font-size: font-size('small');
+  line-height: 1.4;
+
+  @include media('<tablet') {
+    font-size: font-size('small');
+  }
+}
+
+@mixin body($color: $black) {
+  color: $color;
+  font-size: font-size('small');
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+@mixin link($color: $black) {
+  color: $color;
+  font-size: font-size('medium');
+  line-height: 1.1;
+  font-weight: 500;
+  text-decoration: underline;
+}

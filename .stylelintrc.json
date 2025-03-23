@@ -1,0 +1,73 @@
+{
+  "extends": [
+      "stylelint-config-standard-scss",
+      "stylelint-config-recommended-vue/scss"
+  ],
+  "plugins": [
+      "stylelint-selector-bem-pattern",
+      "stylelint-declaration-strict-value"
+  ],
+  "rules": {
+      "selector-pseudo-element-no-unknown": [
+        true,
+        {
+          "ignorePseudoElements": ["deep"]
+        }
+      ],
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": ["deep"]
+        }
+      ],
+      "scss/at-mixin-pattern": "[a-z0-9-]+",
+      "selector-class-pattern": "[a-z0-9-]+",
+      "no-descending-specificity": null,
+      "scale-unlimited/declaration-strict-value": [["/color/", "z-index"], { "disableFix": true }],
+      "string-no-newline": null,
+      "selector-max-id": 0,
+      "function-no-unknown": null,
+      "declaration-block-single-line-max-declarations": 1,
+      "rule-empty-line-before": ["always", {
+        "ignore": ["after-comment"],
+        "except": "first-nested"
+      }],
+      "block-no-empty": true,
+      "at-rule-empty-line-before": [
+        "always", {
+          "except": ["first-nested"],
+          "ignore": ["after-comment", "blockless-after-blockless"],
+          "ignoreAtRules": ["import", "first-nested", "else"]
+        }],
+      "comment-empty-line-before": ["always", {
+        "ignore": ["stylelint-commands"]
+      }],
+      "plugin/selector-bem-pattern": {
+        "componentName": "[A-Z]+",
+        "componentSelectors": {
+          "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+          "combined": "^\\.combined-{componentName}-[a-z]+$"
+        },
+        "utilitySelectors": "^\\.util-[a-z]+$"
+      },
+      "scss/dollar-variable-colon-space-after": "always",
+      "scss/dollar-variable-colon-space-before": "never",
+      "scss/dollar-variable-no-missing-interpolation": true,
+      "scss/dollar-variable-pattern": "^[a-z-]+$",
+      "scss/double-slash-comment-whitespace-inside": "always",
+      "scss/operator-no-newline-before": true,
+      "scss/operator-no-unspaced": true,
+      "scss/selector-no-redundant-nesting-selector": true,
+      "max-nesting-depth": 4,
+      "declaration-no-important": true,
+      "selector-no-qualifying-type": true,
+      "color-hex-length": "long",
+      "color-no-invalid-hex": true,
+      "value-no-vendor-prefix": true,
+      "shorthand-property-no-redundant-values": true,
+      "comment-whitespace-inside": "always",
+      "length-zero-no-unit": true,
+      "declaration-block-no-duplicate-properties": true,
+      "declaration-property-value-no-unknown": [true, {"ignoreProperties": { "/^border/": "/.+/", "/.+/": "/^color(.+)/" }}]
+    }
+}

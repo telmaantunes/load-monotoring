@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use 'sass:color';
+
+$primary: #110617;
+$secondary: #622ca5;
+$negative: #ff4560;
+$warning: #ecc005;
+$positive: #00e396;
+$black: #251e29;
+$white: #ffffff;
+$background: #fafafa;
+$grey: #cccccc;
+$dark-grey: #555555;
+$gradient: linear-gradient(90deg, #5300a6 0%, #aa00ff 100%);
+
+@function color($color, $lightness: null, $alpha: null) {
+  @if $lightness {
+    @return color.scale($color, $lightness: 100% - $lightness);
+  }
+
+  @if $alpha {
+    @return color.scale($color, $alpha: 0% - $alpha);
+  }
+
+  @return $color;
+}
